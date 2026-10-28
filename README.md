@@ -1,3 +1,3 @@
-# thouseef-asna
+# Sreelakshmi & Vijeesh
 
-Digital Wedding Invitation for Thouseef & Parveen.
+Digital Wedding Invitation for Vijeesh & Sree Lekshmi.
