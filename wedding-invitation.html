@@ -16,14 +16,9 @@
   <meta property="og:image" content="/preview.jpg">
   <meta property="og:image:secure_url" content="/preview.jpg">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1000">
-  <meta property="og:image:height" content="1210">
+  <meta property="og:image:width" content="805">
+  <meta property="og:image:height" content="770">
   <meta property="og:image:alt" content="Vijeesh & Sree Lekshmi Wedding Invitation">
-  <meta property="og:image" content="/preview.png">
-  <meta property="og:image:secure_url" content="/preview.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="800">
-  <meta property="og:image:height" content="968">
 
   <!-- Twitter / X Card Preview -->
   <meta name="twitter:card" content="summary_large_image">
@@ -1212,9 +1207,9 @@
       compliments: []
     };
     const PHOTOS = {
-      a: "/couple.jpg",
-      b: "/couple.jpg",
-      casual: "/image.png"
+      a: "/couple_original.jpg",
+      b: "/couple_original.jpg",
+      preview: "/preview.jpg"
     };
 
     /* ===== Render ===== */
@@ -1283,12 +1278,9 @@
 <section class="married-section">
   <div class="wrap" style="max-width:920px">
     <div class="married-card r">
-      <div class="married-slider" id="marriedSlider" role="region" aria-label="Couple Photos" title="Click to view next photo">
+      <div class="married-slider" id="marriedSlider" role="region" aria-label="Couple Photos">
         <div class="married-slide active">
-          <img src="/couple.jpg" alt="${W.groomFull} & ${W.brideFull} — Wedding Attire" decoding="async">
-        </div>
-        <div class="married-slide">
-          <img src="/image.png" alt="${W.groomFull} & ${W.brideFull} — Casual Moments" decoding="async">
+          <img src="/couple_original.jpg" alt="${W.groomFull} & ${W.brideFull}" decoding="async">
         </div>
       </div>
 
@@ -1376,15 +1368,11 @@
   <div class="rule line-x r"></div>
 </div></section>
 
-<section><div class="wrap" style="max-width:640px">
-  <div class="gal" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;">
-    <div class="ph ga r" style="aspect-ratio:2/3;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,0.12)">
-      <img src="${PHOTOS.a}" alt="${W.groomFull} &amp; ${W.brideFull} — Wedding Attire" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
+<section><div class="wrap" style="max-width:480px">
+  <div class="gal" style="grid-template-columns: 1fr; gap: 18px;">
+    <div class="ph ga r" style="aspect-ratio:3/4;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,0.12)">
+      <img src="${PHOTOS.a}" alt="${W.groomFull} &amp; ${W.brideFull}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center">
     </div>
-    ${PHOTOS.casual ? `
-    <div class="ph gb r" style="aspect-ratio:2/3;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,0.12)">
-      <img src="${PHOTOS.casual}" alt="${W.groomFull} &amp; ${W.brideFull}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
-    </div>` : ''}
   </div>
 </div></section>
 
@@ -1440,6 +1428,7 @@ ${W.compliments && W.compliments.length ? `
       const slider = document.getElementById('marriedSlider');
       if (!slider) return;
       const slides = slider.querySelectorAll('.married-slide');
+      if (slides.length <= 1) return;
       let currentIdx = 0;
       let timer = null;
 
