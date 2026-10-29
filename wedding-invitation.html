@@ -691,7 +691,7 @@
       transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s ease;
     }
 
-    /* Normal Smooth Photo Transition */
+    /* Married Section Smooth Crossfade */
     .married-slider {
       position: relative;
       width: 100%;
@@ -709,18 +709,25 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      transform: scale(1.03);
-      transition: opacity 2.2s cubic-bezier(0.4, 0, 0.2, 1), transform 3s cubic-bezier(0.25, 1, 0.5, 1);
       z-index: 1;
       pointer-events: none;
-      will-change: opacity, transform;
+      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity;
     }
 
+    /* Outgoing slide remains solid underneath during transition */
+    .married-slide.prev {
+      opacity: 1;
+      z-index: 2;
+      transition: none;
+    }
+
+    /* Incoming slide fades in on top smoothly */
     .married-slide.active {
       opacity: 1;
-      transform: scale(1);
-      z-index: 2;
+      z-index: 3;
       pointer-events: auto;
+      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .married-slide img {
@@ -729,6 +736,12 @@
       height: 100%;
       object-fit: cover;
       object-position: center 20%;
+      transform: scale(1.03);
+      transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .married-slide.active img {
+      transform: scale(1);
     }
 
     .married-details {
@@ -1060,6 +1073,207 @@
       margin-top: 22px
     }
 
+    /* Receptions Section - Small Elegant Twin Cards */
+    .receptions-section {
+      background: radial-gradient(circle at 50% 30%, #fffdf9 0%, var(--ivory) 100%);
+      padding: clamp(44px, 7vw, 72px) 16px;
+      position: relative;
+    }
+
+    .reception-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    @media (min-width: 600px) {
+      .reception-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+    }
+
+    .reception-card {
+      background: #ffffff;
+      border: 1px solid rgba(220, 194, 141, 0.45);
+      border-radius: 14px;
+      padding: clamp(18px, 3.5vw, 24px) clamp(14px, 3vw, 20px);
+      box-shadow: 0 8px 24px rgba(59, 52, 43, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .reception-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 18%;
+      right: 18%;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--gold, #b8985a), transparent);
+    }
+
+    .reception-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(184, 152, 90, 0.14);
+      border-color: rgba(184, 152, 90, 0.65);
+    }
+
+    .reception-badge {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold, #b8985a);
+      background: rgba(243, 236, 224, 0.6);
+      border: 1px solid rgba(184, 152, 90, 0.3);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .reception-title {
+      font-family: 'Cormorant Garamond', Didot, 'Playfair Display', serif;
+      font-size: clamp(1.25rem, 3vw, 1.45rem);
+      font-weight: 500;
+      color: var(--ink, #3b342b);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .reception-gold-rule {
+      width: 28px;
+      height: 1px;
+      background: var(--gold-soft, #dcc9a0);
+      margin: 8px auto 12px;
+    }
+
+    .reception-details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .reception-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-size: 0.85rem;
+      line-height: 1.35;
+      color: var(--ink, #3b342b);
+    }
+
+    .rec-icon-sm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      color: var(--gold, #b8985a);
+      flex-shrink: 0;
+    }
+
+    .rec-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    .reception-date-val {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink, #3b342b);
+    }
+
+    .reception-day-sub {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--mute, #7d7365);
+      margin-left: 3px;
+    }
+
+    .reception-time-val {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink, #3b342b);
+    }
+
+    .reception-loc-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .reception-loc-name {
+      font-family: var(--serif);
+      font-size: 1.02rem;
+      font-weight: 500;
+      color: var(--ink, #3b342b);
+    }
+
+    .reception-loc-addr {
+      font-family: var(--sans);
+      font-size: 0.74rem;
+      color: var(--mute, #7d7365);
+      margin-top: 1px;
+    }
+
+    .reception-action {
+      margin-top: auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .reception-btn-sm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 16px;
+      font-size: 0.62rem;
+      font-family: var(--sans);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      min-height: 30px;
+      border-radius: 999px;
+      border: 1px solid var(--gold, #b8985a);
+      background: var(--ivory, #faf6ee);
+      color: var(--ink, #3b342b);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .reception-btn-sm:hover {
+      background: #ffffff;
+      transform: scale(1.03);
+      border-color: var(--ink, #3b342b);
+    }
+
+    .reception-btn-sm .pin {
+      width: 12px;
+      height: 12px;
+      margin-bottom: 0;
+    }
+
     /* families */
     .fam {
       display: grid;
@@ -1187,7 +1401,31 @@
       },
       time: "11:52 AM – 12:14 PM",
       timeDetail: "Between 11:52 AM and 12:14 PM",
-      reception: "Between 11:52 AM and 12:14 PM",
+      reception: "Bride: 8 Dec, 2:00 PM | Groom: 10 Dec, 4:00 PM",
+      receptions: [
+        {
+          side: "Bride's Side",
+          title: "Bride's Reception",
+          date: "8 Dec 2026",
+          day: "Tuesday",
+          time: "2:00 PM",
+          location: "Bride's Residence 🏠",
+          address: "Jayamurali Bhavan, Karavaloor",
+          map: "",
+          isHome: true
+        },
+        {
+          side: "Groom's Side",
+          title: "Groom's Reception",
+          date: "10 Dec 2026",
+          day: "Thursday",
+          time: "4:00 PM",
+          location: "Sherly Auditorium",
+          address: "Kulathuppuzha",
+          map: "https://www.google.com/maps/search/?api=1&query=Sherly+Auditorium+Kulathupuzha",
+          isHome: false
+        }
+      ],
       notice: "",
       venue: {
         name: "Koyippuram Auditorium",
@@ -1224,12 +1462,17 @@
     const PHOTOS = {
       a: "/couple_original.jpg",
       b: "/image.png",
-      preview: "/preview.jpg"
+      preview: "/preview.jpg",
+      married1: "/image%20copy.png",
+      married2: "/image%20copy%202.png"
     };
 
     /* ===== Render ===== */
     const orn = '<svg class="orn r" viewBox="0 0 150 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 9h55M95 9h55"/><circle cx="75" cy="9" r="4"/><circle cx="65" cy="9" r="2.5"/><circle cx="85" cy="9" r="2.5"/></svg>';
     const pin = '<svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg>';
+    const calIcon = '<svg class="rec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+    const clockIcon = '<svg class="rec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+    const homeIcon = '<svg class="rec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>';
     const D = W.date, V = W.venue;
     document.getElementById('app').innerHTML = `
 <section id="hero">
@@ -1293,9 +1536,12 @@
 <section class="married-section">
   <div class="wrap" style="max-width:920px">
     <div class="married-card r">
-      <div class="married-slider" id="marriedSlider" role="region" aria-label="Couple Photos">
+      <div class="married-slider" id="marriedSlider" role="region" aria-label="Couple Photos" title="Tap to switch photo">
         <div class="married-slide active">
-          <img src="/couple_original.jpg" alt="${W.groomFull} & ${W.brideFull}" decoding="async">
+          <img src="${PHOTOS.married1}" alt="${W.groomFull} & ${W.brideFull}" decoding="async">
+        </div>
+        <div class="married-slide">
+          <img src="${PHOTOS.married2}" alt="${W.groomFull} & ${W.brideFull}" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -1362,13 +1608,62 @@
   <p class="note r">${D.full} • ${D.day}</p>
 </div></section>
 
-<section><div class="wrap">
+<section class="receptions-section" id="receptions"><div class="wrap" style="max-width:660px">
+  <p class="label r" style="margin-bottom:8px">Celebrations</p>
+  <h2 class="big r" style="font-size:clamp(1.6rem,4.5vw,2.1rem);margin-bottom:22px">The Receptions</h2>
+
+  <div class="reception-grid">
+    ${W.receptions.map(r => `
+      <div class="reception-card r">
+        <div>
+          <div class="reception-badge">${r.side}</div>
+          <h3 class="reception-title">${r.title}</h3>
+          <div class="reception-gold-rule"></div>
+
+          <div class="reception-details">
+            <div class="reception-row">
+              <span class="rec-icon-sm" aria-hidden="true">${calIcon}</span>
+              <div>
+                <span class="reception-date-val">${r.date}</span>
+                <span class="reception-day-sub">(${r.day})</span>
+              </div>
+            </div>
+
+            <div class="reception-row">
+              <span class="rec-icon-sm" aria-hidden="true">${clockIcon}</span>
+              <span class="reception-time-val">${r.time}</span>
+            </div>
+
+            <div class="reception-row" style="align-items:flex-start">
+              <span class="rec-icon-sm" style="margin-top:2px" aria-hidden="true">${r.isHome ? homeIcon : pin}</span>
+              <div class="reception-loc-col">
+                <span class="reception-loc-name">${r.location}</span>
+                <span class="reception-loc-addr">${r.address}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        ${r.map ? `
+          <div class="reception-action">
+            <a class="reception-btn-sm" href="${r.map}" target="_blank" rel="noopener noreferrer">
+              ${pin}
+              <span>View Map</span>
+            </a>
+          </div>
+        ` : ''}
+      </div>
+    `).join('')}
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
   ${orn}
   <p class="body r">${W.invite}</p>
   ${orn}
 </div></section>
 
-<section class="alt"><div class="wrap" style="max-width:900px">
+<section><div class="wrap" style="max-width:900px">
   <p class="label r">With the blessings of our families</p>
   <div class="fam">
     ${fam(W.families[0])}
@@ -1448,29 +1743,64 @@ ${W.compliments && W.compliments.length ? `
     }
     document.querySelector('#hero .btn').addEventListener('click', e => { e.preventDefault(); openInvite() });
 
-        /* ===== Normal Smooth Image Transition ===== */
+    /* ===== Married Section Smooth Crossfade Slideshow ===== */
     function initSlider() {
       const slider = document.getElementById('marriedSlider');
       if (!slider) return;
       const slides = slider.querySelectorAll('.married-slide');
-      if (slides.length <= 1) return;
-      let currentIdx = 0;
-      let timer = null;
+      const total = slides.length;
+      if (total <= 1) return;
 
-      function goTo(newIdx) {
-        if (newIdx === currentIdx || newIdx < 0 || newIdx >= slides.length) return;
-        slides.forEach((s, i) => s.classList.toggle('active', i === newIdx));
-        currentIdx = newIdx;
+      let current = 0;
+      let isTransitioning = false;
+      let timer = null;
+      const displayDuration = 5000;
+      const fadeDuration = 1800;
+
+      // Initialize first slide
+      slides.forEach((s, i) => {
+        if (i === 0) {
+          s.classList.add('active');
+          s.classList.remove('prev');
+        } else {
+          s.classList.remove('active', 'prev');
+        }
+      });
+
+      function goTo(nextIdx) {
+        if (nextIdx === current || isTransitioning) return;
+        isTransitioning = true;
+
+        const prevSlide = slides[current];
+        const nextSlide = slides[nextIdx];
+
+        // 1. Keep outgoing slide solid underneath (z-index: 2)
+        slides.forEach(s => s.classList.remove('prev'));
+        prevSlide.classList.add('prev');
+        prevSlide.classList.remove('active');
+
+        // 2. Prepare incoming slide on top at opacity 0 (z-index: 3)
+        nextSlide.classList.remove('active');
+        void nextSlide.offsetWidth;
+
+        // 3. Fade in incoming slide smoothly over previous slide
+        nextSlide.classList.add('active');
+        current = nextIdx;
+
+        // 4. Release transition lock after crossfade completes
+        setTimeout(() => {
+          prevSlide.classList.remove('prev');
+          isTransitioning = false;
+        }, fadeDuration);
       }
 
       function next() {
-        const nextIdx = (currentIdx + 1) % slides.length;
-        goTo(nextIdx);
+        goTo((current + 1) % total);
       }
 
       function startAuto() {
         stopAuto();
-        timer = setInterval(next, 5500);
+        timer = setInterval(next, displayDuration);
       }
 
       function stopAuto() {
