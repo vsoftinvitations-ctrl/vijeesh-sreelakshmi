@@ -867,41 +867,12 @@
       width: 100%;
       margin: 0 auto;
       border-radius: 20px;
-      padding: 12px;
+      padding: 10px;
       background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 16px 45px -8px rgba(59, 52, 43, 0.12), 0 0 0 1px rgba(220, 201, 160, 0.45);
-    }
-
-    .story-progress-bar {
-      display: flex;
-      gap: 6px;
-      padding: 4px 6px 12px;
-      width: 100%;
-    }
-
-    .story-progress-segment {
-      flex: 1;
-      height: 4px;
-      background: rgba(184, 152, 90, 0.22);
-      border-radius: 999px;
-      overflow: hidden;
-      position: relative;
       cursor: pointer;
-    }
-
-    .story-progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #b8985a, #dcc9a0);
-      border-radius: 999px;
-      transition: width 0.12s linear;
-    }
-
-    .story-progress-segment.completed .story-progress-fill {
-      width: 100% !important;
-      background: var(--gold, #b8985a);
     }
 
     .story-slides-wrap {
@@ -922,7 +893,7 @@
       inset: 0;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
       transform: scale(1.025);
       will-change: opacity, transform;
       pointer-events: none;
@@ -944,156 +915,11 @@
       border-radius: 14px;
     }
 
-    .story-tap-zone {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      z-index: 3;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      outline: none;
-    }
-
-    .story-tap-prev {
-      left: 0;
-      width: 35%;
-    }
-
-    .story-tap-next {
-      right: 0;
-      width: 65%;
-    }
-
-    .story-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 5;
-      background: rgba(26, 22, 18, 0.72);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: #f7ede2;
-      font-family: var(--sans);
-      font-size: 0.76rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      padding: 5px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(220, 201, 160, 0.45);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-      pointer-events: none;
-    }
-
-    .story-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 6;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(184, 152, 90, 0.4);
-      color: #3b342b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
-      outline: none;
-    }
-
-    .story-arrow:hover {
-      background: #b8985a;
-      color: #ffffff;
-      transform: translateY(-50%) scale(1.08);
-      border-color: #b8985a;
-    }
-
-    .story-arrow:active {
-      transform: translateY(-50%) scale(0.96);
-    }
-
-    .story-arrow-prev { left: 14px; }
-    .story-arrow-next { right: 14px; }
-
-    .story-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 14px;
-      padding: 0 6px;
-      flex-wrap: wrap;
-    }
-
-    .story-dots {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .story-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      border: none;
-      background: rgba(184, 152, 90, 0.28);
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: 0;
-    }
-
-    .story-dot.active {
-      width: 26px;
-      background: var(--gold, #b8985a);
-      box-shadow: 0 0 8px rgba(184, 152, 90, 0.45);
-    }
-
-    .story-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .story-toggle-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: none;
-      border: 1px solid rgba(184, 152, 90, 0.4);
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      color: var(--mute, #7d7365);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .story-toggle-btn:hover {
-      background: rgba(184, 152, 90, 0.12);
-      color: var(--ink, #3b342b);
-      border-color: var(--gold, #b8985a);
-    }
-
     @media (max-width: 600px) {
       .story-card {
-        padding: 8px;
+        padding: 6px;
         border-radius: 16px;
       }
-      .story-arrow {
-        width: 38px;
-        height: 38px;
-      }
-      .story-arrow-prev { left: 8px; }
-      .story-arrow-next { right: 8px; }
     }
 
     /* hero sequence */
@@ -1319,10 +1145,6 @@
   <audio id="wedding-audio" loop preload="auto">
     <source src="/music/song.mp3" type="audio/mpeg">
     <source src="music/song.mp3" type="audio/mpeg">
-    <source src="/music/arikilayi.mp3" type="audio/mpeg">
-    <source src="music/arikilayi.mp3" type="audio/mpeg">
-    <source src="/music/arikilayi%20vannu%20nin%20mridulamam.mp3" type="audio/mpeg">
-    <source src="music/arikilayi%20vannu%20nin%20mridulamam.mp3" type="audio/mpeg">
   </audio>
   <main id="app"></main>
   <footer class="foot">
@@ -1556,46 +1378,12 @@
     <p class="serif r" style="font-size:1.15rem;color:var(--gold,#b8985a);letter-spacing:0.08em;margin-bottom:28px">A glimpse into our beautiful journey</p>
     
     <div class="story-card r" id="storyContainer">
-      <div class="story-progress-bar" id="storyProgressBar" aria-hidden="true">
-        ${[1,2,3,4,5,6,7,8,9].map((_, i) => `
-          <div class="story-progress-segment ${i === 0 ? 'active' : ''}" data-step="${i}">
-            <div class="story-progress-fill"></div>
-          </div>
-        `).join('')}
-      </div>
-
-      <div class="story-slides-wrap" id="storySlidesWrap" role="region" aria-label="Our Love Story Slideshow">
+      <div class="story-slides-wrap" id="storySlidesWrap" role="region" aria-label="Our Love Story Slideshow" title="Tap to view next photo">
         ${[1,2,3,4,5,6,7,8,9].map((n, i) => `
           <div class="story-slide ${i === 0 ? 'active' : ''}" data-index="${i}">
             <img src="/pic${n}.webp" alt="Our Story - Chapter ${n}" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async">
           </div>
         `).join('')}
-
-        <button class="story-tap-zone story-tap-prev" id="storyTapPrev" aria-label="Previous story image"></button>
-        <button class="story-tap-zone story-tap-next" id="storyTapNext" aria-label="Next story image"></button>
-
-        <div class="story-badge" id="storyBadge">01 / 09</div>
-
-        <button class="story-arrow story-arrow-prev" id="storyPrevBtn" aria-label="Previous step">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="story-arrow story-arrow-next" id="storyNextBtn" aria-label="Next step">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-
-      <div class="story-footer">
-        <div class="story-dots" id="storyDots">
-          ${[1,2,3,4,5,6,7,8,9].map((_, i) => `
-            <button class="story-dot ${i === 0 ? 'active' : ''}" data-step="${i}" aria-label="Go to story step ${i + 1}"></button>
-          `).join('')}
-        </div>
-        <div class="story-controls">
-          <button class="story-toggle-btn" id="storyPlayBtn" aria-label="Pause slideshow">
-            <span class="story-play-icon" id="storyPlayIcon">⏸</span>
-            <span class="story-play-text" id="storyPlayText">Pause</span>
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -1695,47 +1483,16 @@ ${W.compliments && W.compliments.length ? `
       if (!wrap) return;
 
       const slides = wrap.querySelectorAll('.story-slide');
-      const dots = document.querySelectorAll('.story-dot');
-      const segments = document.querySelectorAll('.story-progress-segment');
-      const badge = document.getElementById('storyBadge');
-      const prevBtn = document.getElementById('storyPrevBtn');
-      const nextBtn = document.getElementById('storyNextBtn');
-      const tapPrev = document.getElementById('storyTapPrev');
-      const tapNext = document.getElementById('storyTapNext');
-      const playBtn = document.getElementById('storyPlayBtn');
-      const playIcon = document.getElementById('storyPlayIcon');
-      const playText = document.getElementById('storyPlayText');
-
       const total = slides.length;
-      if (total === 0) return;
+      if (total <= 1) return;
 
       let current = 0;
-      let isPlaying = true;
-      let progressTimer = null;
-      let startTime = null;
-      const stepDuration = 4800;
-
-      function updateUI(idx) {
-        slides.forEach((s, i) => s.classList.toggle('active', i === idx));
-        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-        segments.forEach((seg, i) => {
-          seg.classList.toggle('completed', i < idx);
-          seg.classList.toggle('active', i === idx);
-          const fill = seg.querySelector('.story-progress-fill');
-          if (fill) {
-            if (i < idx) fill.style.width = '100%';
-            else if (i > idx) fill.style.width = '0%';
-          }
-        });
-        if (badge) {
-          badge.textContent = `${String(idx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-        }
-      }
+      let timer = null;
+      const stepDuration = 4500;
 
       function goTo(idx) {
         current = (idx + total) % total;
-        updateUI(current);
-        startStepProgress();
+        slides.forEach((s, i) => s.classList.toggle('active', i === current));
       }
 
       function next() {
@@ -1746,53 +1503,18 @@ ${W.compliments && W.compliments.length ? `
         goTo(current - 1);
       }
 
-      function startStepProgress() {
-        cancelAnimationFrame(progressTimer);
-        const currentSeg = segments[current];
-        const fill = currentSeg ? currentSeg.querySelector('.story-progress-fill') : null;
-        if (fill) fill.style.width = '0%';
-
-        if (!isPlaying) return;
-
-        startTime = performance.now();
-
-        function step(now) {
-          if (!isPlaying) return;
-          const elapsed = now - startTime;
-          const pct = Math.min(100, (elapsed / stepDuration) * 100);
-          if (fill) fill.style.width = `${pct}%`;
-
-          if (elapsed >= stepDuration) {
-            next();
-          } else {
-            progressTimer = requestAnimationFrame(step);
-          }
-        }
-        progressTimer = requestAnimationFrame(step);
+      function startAuto() {
+        stopAuto();
+        timer = setInterval(next, stepDuration);
       }
 
-      function togglePlay() {
-        isPlaying = !isPlaying;
-        if (playIcon) playIcon.textContent = isPlaying ? '⏸' : '▶';
-        if (playText) playText.textContent = isPlaying ? 'Pause' : 'Play';
-        if (isPlaying) {
-          startStepProgress();
-        } else {
-          cancelAnimationFrame(progressTimer);
-        }
+      function stopAuto() {
+        if (timer) clearInterval(timer);
       }
 
-      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
-      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
-      if (tapNext) tapNext.addEventListener('click', next);
-      if (tapPrev) tapPrev.addEventListener('click', prev);
-      if (playBtn) playBtn.addEventListener('click', togglePlay);
-
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => goTo(i));
-      });
-      segments.forEach((seg, i) => {
-        seg.addEventListener('click', () => goTo(i));
+      wrap.addEventListener('click', () => {
+        next();
+        startAuto();
       });
 
       let touchStartX = 0;
@@ -1808,21 +1530,17 @@ ${W.compliments && W.compliments.length ? `
         if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
           if (diffX < 0) next();
           else prev();
+          startAuto();
         }
       }, { passive: true });
 
       const container = document.getElementById('storyContainer');
       if (container) {
-        container.addEventListener('mouseenter', () => {
-          if (isPlaying) cancelAnimationFrame(progressTimer);
-        });
-        container.addEventListener('mouseleave', () => {
-          if (isPlaying) startStepProgress();
-        });
+        container.addEventListener('mouseenter', stopAuto);
+        container.addEventListener('mouseleave', startAuto);
       }
 
-      updateUI(0);
-      startStepProgress();
+      startAuto();
     }
     initStory();
 
